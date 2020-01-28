@@ -54,12 +54,15 @@ function locationHandler(request, response) {
               response.send(location);
             })
             .catch(() => {
-              errorHandler('not today satan.', request, response);
+              errorHandler('Sorry', request, response);
             });
         } catch (error) {
           errorHandler(error, request, response);
         }
       }
+    })
+    .catch((error) => {
+      errorHandler(error, request, response);
     });
 }
 
@@ -75,7 +78,7 @@ function weatherHandler(request, response) {
       response.status(200).json(weatherSummaries);
     })
     .catch(() => {
-      errorHandler('not today satan.', request, response);
+      errorHandler('Sorry!', request, response);
     });
 }
 
